@@ -6,10 +6,6 @@ namespace Anagram
     public class AnagramSelector
     {
         int[] hashOfWord1 = new int[257];
-        public string RemoveSpaceFromWord(string word)
-        {
-            return word.Replace(" ", string.Empty);
-        }
         public void MapEachWord(string word1)
         {
             Array.Clear(hashOfWord1, 0, hashOfWord1.Length);
@@ -24,8 +20,8 @@ namespace Anagram
         public bool WordPairIsAnagram(string word1, string word2) {
             word1.ToLower();
             word2.ToLower();
-            word1 = RemoveSpaceFromWord(word1);
-            word2 = RemoveSpaceFromWord(word2);
+            word1 = word1.Replace(" ", string.Empty);
+            word2 = word2.Replace(" ", string.Empty);
             MapEachWord(word1);
             if (word1.Length != word2.Length)
                 return false;
