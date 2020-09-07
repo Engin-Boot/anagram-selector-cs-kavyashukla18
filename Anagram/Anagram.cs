@@ -9,9 +9,9 @@ namespace Anagram
         public void MapEachWord(string word1)
         {
             Array.Clear(hashOfWord1, 0, hashOfWord1.Length);
-            for (int i = 0; i < word1.Length; i++)
+            for (int iterateWord1 = 0; iterateWord1 < word1.Length; iterateWord1++)
             {
-                hashOfWord1[word1[i] - 'a']++;
+                hashOfWord1[word1[iterateWord1] - 'a']++;
             }
         }
         public bool WordPairIsAnagram(string word1, string word2) {
@@ -20,24 +20,22 @@ namespace Anagram
             word1 = word1.Replace(" ", string.Empty);
             word2 = word2.Replace(" ", string.Empty);
             MapEachWord(word1);
-            if (word1.Length != word2.Length)
-                return false;
-            for (int i = 0; i < word2.Length; i++)
+            for (int iterateWord2 = 0; iterateWord2 < word2.Length; iterateWord2++)
                 {
-                    if (hashOfWord1[word2[i] - 'a'] <= 0)
+                    if (hashOfWord1[word2[iterateWord2] - 'a'] <= 0)
                     {
                         return false;
                     }
-                    hashOfWord1[word2[i] - 'a']--;
+                    hashOfWord1[word2[iterateWord2] - 'a']--;
                 }
              return true;
         }
         public List<string> SelectAnagrams(string word, List<string> candidates) {
-            for(int i = 0; i < candidates.Count; i++)
+            for(int iterateCandidates = 0; iterateCandidates < candidates.Count; iterateCandidates++)
             {
-                if(!WordPairIsAnagram(word, candidates[i]))
+                if(!WordPairIsAnagram(word, candidates[iterateCandidates]))
                 {
-                    candidates.RemoveAt(i);
+                    candidates.RemoveAt(iterateCandidates);
                 }
             }
             return candidates;
