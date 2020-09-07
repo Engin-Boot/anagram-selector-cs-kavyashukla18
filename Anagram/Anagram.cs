@@ -11,11 +11,13 @@ namespace Anagram
         {
             return word.Replace(" ", string.Empty);
         }
+        
         public void MapEachWord(string word1)
         {
             Array.Clear(hashOfWord1, 0, hashOfWord1.Length);
             for (int iterateWord1 = 0; iterateWord1 < word1.Length; iterateWord1++)
             {
+                
                 if (word1[iterateWord1] >= 'a' && word1[iterateWord1] <= 'z')
                 {
                     hashOfWord1[word1[iterateWord1] - 'a']++;
@@ -35,9 +37,7 @@ namespace Anagram
 
             if (word1.Length != word2.Length)
                 return false;
-            else
-            {
-                for (int iterateWord2 = 0; iterateWord2 < word2.Length; iterateWord2++)
+            for (int iterateWord2 = 0; iterateWord2 < word2.Length; iterateWord2++)
                 {
                     if (hashOfWord1[word2[iterateWord2] - 'a'] > 0)
                     {
@@ -48,8 +48,7 @@ namespace Anagram
                         return false;
                     }
                 }
-                return true;
-            }
+             return true;
         }
         public List<string> SelectAnagrams(string word, List<string> candidates) {
             //Insert the correct implementation here
