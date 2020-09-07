@@ -11,10 +11,7 @@ namespace Anagram
             Array.Clear(hashOfWord1, 0, hashOfWord1.Length);
             for (int iterateWord1 = 0; iterateWord1 < word1.Length; iterateWord1++)
             {
-                if (word1[iterateWord1] >= 'a' && word1[iterateWord1] <= 'z')
-                {
-                    hashOfWord1[word1[iterateWord1] - 'a']++;
-                }
+                hashOfWord1[word1[iterateWord1] - 'a']++;
             }
         }
         public bool WordPairIsAnagram(string word1, string word2) {
